@@ -306,7 +306,7 @@ struct UsageView: View {
         Divider()
         Button {
             let service = accounts.addAccount()
-            service.oauthService.startLogin { service.handleLoginResult($0) }
+            service.login()
         } label: {
             Label("Add account", systemImage: "plus.circle")
                 .font(.system(.caption, design: .monospaced))
@@ -370,7 +370,7 @@ struct UsageView: View {
                         .foregroundColor(.secondary)
                         .multilineTextAlignment(.center)
                     Button("Login with Claude") {
-                        svc.oauthService.startLogin { svc.handleLoginResult($0) }
+                        svc.login()
                     }
                     .buttonStyle(.borderedProminent)
                     .controlSize(.regular)
@@ -387,7 +387,7 @@ struct UsageView: View {
                     sectionHeader(fallbackLabel)
                     Spacer()
                     Button("Login") {
-                        svc.oauthService.startLogin { svc.handleLoginResult($0) }
+                        svc.login()
                     }
                     .buttonStyle(.borderless)
                     .font(.system(.caption2, design: .monospaced))
